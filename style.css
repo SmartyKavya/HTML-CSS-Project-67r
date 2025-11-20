@@ -221,6 +221,90 @@ ul {
     color: var(--dark-text);
 }
 
+/* --- LAPTOP & TABLET (Max 992px) --- */
+@media (max-width: 992px) {
+    /* Adjust Padding Globally for both containers */
+    .top-header, 
+    .navbar {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+    /* Navigation Bar */
+    .nav-links {
+        gap: 20px; /* Slightly reduce space between links */
+    }
+    
+    /* Top Header */
+    .contact-info span {
+        margin-right: 15px;
+    }
+}
+/* --- MOBILE PHONE (Max 768px) --- */
+@media (max-width: 768px) {
+    /* Adjust Padding Globally for both containers */
+    .top-header, 
+    .navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    /* TOP HEADER: Stack contact info and social links */
+    .top-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .social-links {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 5px;
+        padding-top: 5px;
+        border-top: 1px solid #eee;
+    }
+    .contact-info {
+        margin-bottom: 5px;
+    }
+    .contact-info span {
+        display: block; /* Stack contact lines */
+        margin-right: 0;
+        margin-bottom: 3px;
+    }
+
+    /* NAVIGATION BAR: Stack all elements */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    /* Navigation Links: Stack vertically and take full width */
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px; /* Reduce gap */
+        margin: 15px 0; /* Add margin to separate from logo/icons */
+    }
+    .nav-links li {
+        padding: 5px 0;
+        border-bottom: 1px dashed #eee;
+    }
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    /* Nav Icons: Move below logo/links (or position them clearly) */
+    .nav-icons {
+        align-self: flex-end; /* Push icons to the right corner */
+    }
+    .nav-icons a {
+        margin-left: 10px;
+    }
+}
+
 
 /* --- About Section (Farmer Image) --- */
 .about-section {
@@ -418,6 +502,78 @@ ul {
 .product-item .actions i {
     margin-right: 5px;
 }
+/* --- LAPTOP / TABLET / MOBILE RESPONSIVENESS --- */
+
+/* 1. Tablet and Smaller Desktop Screens (Max 1200px to override default 4-column) */
+@media (max-width: 1200px) {
+    /* Adjust Padding to standard smaller size */
+    .products-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+    /* Product Grid: Switch from 4 columns to 2 columns */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* 2. Smaller Tablet and Mobile Phone Screens (Max 768px) */
+@media (max-width: 768px) {
+    /* Further reduction in Padding */
+    .products-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    /* Product Grid: **Keep 2 columns as requested for phone** */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    /* Product Filters: Allow filters to wrap to the next line */
+    .product-filters {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .filter-btn {
+        margin-left: 0;
+        margin-right: 10px;
+        margin-bottom: 10px; 
+        padding: 8px 15px; /* Slight reduction for smaller screens */
+    }
+    
+    /* Ensure the product image fits well in the smaller columns */
+    .product-item img {
+        max-height: 140px; 
+    }
+    
+    /* Adjust button size for small screens */
+    .btn-primary-lg {
+        padding: 12px 30px;
+    }
+}
+
+/* 3. Very Small Mobile Devices (Max 500px) */
+@media (max-width: 500px) {
+    /* If 2 columns is too small, this media query would revert to 1 column. 
+       Since you explicitly asked for 2 columns on phones, we will make sure 
+       the items don't break, but keep the 2-column rule. */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    /* Ensure action links fit */
+    .product-item .actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
 
 
 /* --- Visit Firm Section (Green Banner) --- */
@@ -682,6 +838,82 @@ ul {
     margin-right: 8px;
 }
 
+/* --- LAPTOP & TABLET (Max 992px) --- */
+@media (max-width: 992px) {
+    /* Adjust Section Padding */
+    .blog-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+    /* Blog Grid: Switch from 3 columns to 2 columns */
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px; /* Slight reduction in gap */
+    }
+}
+
+/* --- MOBILE PHONE (Max 768px) --- */
+@media (max-width: 768px) {
+    /* Adjust Section Padding */
+    .blog-section {
+        padding-left: 20px;
+        padding-right: 20px;
+        /* Remove the inline style height override if it's still present, 
+           or simply allow the height to adjust based on content. */
+        height: auto !important; 
+    }
+    
+    /* Blog Grid: Switch to 1 column */
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Adjust blog image height for phones */
+    .blog-image {
+        height: 200px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Global Padding Reduction */
+    .hero-section, .about-section,
+    .features-section, .products-section, .visit-firm-section,
+    .customer-review-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }    
+    /* About Section */
+    .about-content h3 {
+        font-size: 28px;
+    }
+
+    .filter-btn {
+        margin-left: 0;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    
+    /* Customer Review Carousel: Full width cards */
+    .review-card {
+        min-width: 90%; /* Allows one card to take up most of the viewport */
+    }
+
+    /* Footer: 1 Column */
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-col {
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
 
 /* --- Footer --- */
 .main-footer {
